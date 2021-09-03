@@ -1,6 +1,6 @@
 import { v4 as uuidv4 } from 'uuid';
 import { useDispatch } from 'react-redux';
-import {addBook, removeBook} from './redux/books/books';
+import { addBook } from '../redux/books/books';
 
 const AddBook = () => {
   const getElementById = id => document.getElementById(id);
