@@ -2,7 +2,7 @@ import './App.css';
 import { Route, Switch } from 'react-router-dom';
 import NoMatch from './pages/NoMatch';
 import Books from './pages/Books';
-import Categories from './pages/Categories'
+import Categories from './pages/Categories';
 import Navbar from './components/Navbar';
 
 const App = () => (

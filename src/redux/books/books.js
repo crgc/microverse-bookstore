@@ -1,4 +1,4 @@
-const LOAD   = 'bookstore/books/LOAD';
+const LOAD = 'bookstore/books/LOAD';
 const CREATE = 'bookstore/books/CREATE';
 const UPDATE = 'bookstore/books/UPDATE';
 const REMOVE = 'bookstore/books/REMOVE';

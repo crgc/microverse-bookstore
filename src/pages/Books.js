@@ -4,36 +4,36 @@ const Books = () => {
       id: 1,
       title: 'The Lord of the Rings',
       author: 'J. R. R. Tolkien',
-      category: 'Fantasy'
+      category: 'Fantasy',
     },
     {
       id: 2,
       title: 'Among the Thugs',
       author: 'Bill Buford',
-      category: 'Journalism'
+      category: 'Journalism',
     },
     {
       id: 3,
       title: 'Influence',
       author: 'Robert Cialdini',
-      category: 'Psychology'
-    }
+      category: 'Psychology',
+    },
   ];
 
   return (
     <div className="book-section">
-        {books.map((book) => (
-            <div key={book.id} className="book">
-              <div className="book-info">
-                <div className="book-category">{book.category}</div>
-                <div className="book-title">{book.title}</div>
-                <div className="book-author">{book.author}</div>
-              </div>
-            </div>
-        ))}
-      <div className="gray-line"></div>
+      {books.map((book) => (
+        <div key={book.id} className="book">
+          <div className="book-info">
+            <div className="book-category">{book.category}</div>
+            <div className="book-title">{book.title}</div>
+            <div className="book-author">{book.author}</div>
+          </div>
+        </div>
+      ))}
+      <div className="gray-line" />
     </div>
   );
-}
+};
 
 export default Books;
