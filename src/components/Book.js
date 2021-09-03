@@ -25,8 +25,4 @@ Book.propsType = {
   category: PropTypes.string.isRequired,
 };
 
-Book.defaultProps = {
-  category: 'Category',
-};
-
 export default Book;

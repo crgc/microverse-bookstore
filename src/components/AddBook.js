@@ -34,7 +34,7 @@ const AddBook = () => {
       const newState = { ...prev };
       newState[e.target.name] = e.target.value;
 
-      return prev;
+      return newState;
     });
   };
 
