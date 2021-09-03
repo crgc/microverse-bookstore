@@ -24,6 +24,7 @@ const Books = () => {
             <div className="book-category">{book.category}</div>
             <div className="book-title">{book.title}</div>
             <div className="book-author">{book.author}</div>
+            <button type="button" className="btn remove-book-btn">Remove</button>
           </div>
         </div>
       ))}

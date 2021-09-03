@@ -130,12 +130,20 @@ nav ul li {
   width: 30%;
 }
 
-.add-book-btn {
+.add-book-btn,
+.remove-book-btn {
   color: white;
   background-color: #0290ff;
   border-radius: 3px;
   padding: 0.6rem 3rem !important;
+}
+
+.add-book-btn {
   margin-left: 1rem;
+}
+
+.remove-book-btn {
+  margin-top: 1rem;
 }
 
 a,
