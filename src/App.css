@@ -1,7 +1,3 @@
-select:focus, input:focus{
-  outline: none;
-}
-
 select,
 input {
   border: none;
@@ -16,6 +12,11 @@ select {
 input[type="text"] {
   line-height: 2rem;
   padding: 5px 10px;
+}
+
+select:focus,
+input:focus {
+  outline: none;
 }
 
 nav,
@@ -167,7 +168,6 @@ a:focus,
   font-size: 14px;
   padding: 6px 12px;
   margin-bottom: 0;
-
   display: inline-block;
   text-decoration: none;
   text-align: center;
@@ -184,13 +184,6 @@ a:focus,
   border: 1px solid transparent;
 }
 
-.btn:focus,
-.btn:active:focus {
-  outline: thin dotted;
-  outline: 5px auto -webkit-focus-ring-color;
-  outline-offset: -2px;
-}
-
 .btn:hover,
 .btn:focus {
   color: white;
@@ -200,6 +193,13 @@ a:focus,
 .btn:active {
   background-image: none;
   outline: 0;
-  -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125);
-  box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125);
+  -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+}
+
+.btn:focus,
+.btn:active:focus {
+  outline: thin dotted;
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
 }
