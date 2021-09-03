@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { addBook } from '../redux/books/books';
 
 const AddBook = () => {
-  const getElementById = id => document.getElementById(id);
+  const getElementById = (id) => document.getElementById(id);
 
   const dispatch = useDispatch();
 
@@ -15,13 +15,13 @@ const AddBook = () => {
       id: uuidv4(),
       title: title.value,
       author: author.value,
-    }
+    };
 
     dispatch(addBook(newBook));
 
     title.value = '';
     author.value = '';
-  }
+  };
 
   return (
     <div className="add-book-section">

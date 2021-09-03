@@ -1,11 +1,9 @@
+import { useSelector } from 'react-redux';
 import AddBook from '../components/AddBook';
 import RemoveBook from '../components/RemoveBook';
-import { useSelector } from 'react-redux';
 
 const Books = () => {
-  const books = useSelector(state => {
-    return state.booksReducer;
-  });
+  const books = useSelector((state) => state.booksReducer);
 
   return (
     <div className="book-section">
@@ -15,7 +13,7 @@ const Books = () => {
             <div className="book-category">{book.category}</div>
             <div className="book-title">{book.title}</div>
             <div className="book-author">{book.author}</div>
-            <RemoveBook id={book.id}/>
+            <RemoveBook id={book.id} />
           </div>
         </div>
       ))}
