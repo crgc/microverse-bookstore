@@ -1,26 +1,39 @@
-const LOAD = 'bookstore/books/LOAD';
-const CREATE = 'bookstore/books/CREATE';
-const UPDATE = 'bookstore/books/UPDATE';
-const REMOVE = 'bookstore/books/REMOVE';
+const ADD_BOOK = 'bookstore/books/ADD';
+const REMOVE_BOOK = 'bookstore/books/REMOVE';
 
-export default function reducer(state = {}, action = {}) {
+const initialState = [
+  {
+    id: 1,
+    title: 'The Lord of the Rings',
+    author: 'J. R. R. Tolkien',
+    category: 'Fantasy',
+  },
+  {
+    id: 2,
+    title: 'Among the Thugs',
+    author: 'Bill Buford',
+    category: 'Journalism',
+  },
+];
+const reducer = (state = initialState, action) => {
   switch (action.type) {
-    default: return state;
+    case ADD_BOOK:
+      return [...state, action.payload];
+    case REMOVE_BOOK:
+      return state.filter((book) => book.id !== action.payload.id);
+    default:
+      return state;
   }
-}
+};
 
-export function loadBooks() {
-  return { type: LOAD };
-}
+export const addBook = (payload) => ({
+  type: ADD_BOOK,
+  payload,
+});
 
-export function createBook(book) {
-  return { type: CREATE, book };
-}
+export const removeBook = (payload) => ({
+  type: REMOVE_BOOK,
+  payload,
+});
 
-export function updateBook(book) {
-  return { type: UPDATE, book };
-}
-
-export function removeBook(book) {
-  return { type: REMOVE, book };
-}
+export default reducer;
