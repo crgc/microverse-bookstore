@@ -13,7 +13,8 @@ const Books = () => {
           id={book.id}
           title={book.title}
           author={book.author}
-          category={book.category} />
+          category={book.category}
+        />
       ))}
       <div className="gray-line" />
       <AddBook />
