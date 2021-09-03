@@ -1,17 +1,26 @@
+import { v4 as uuidv4 } from 'uuid';
 import { useDispatch } from 'react-redux';
 import {addBook, removeBook} from './redux/books/books';
 
 const AddBook = () => {
+  const getElementById = id => document.getElementById(id);
+
   const dispatch = useDispatch();
 
   const submitBookToStore = () => {
+    const title = getElementById('input-title');
+    const author = getElementById('input-author');
+
     const newBook = {
-      id,
-      title,
-      author
+      id: uuidv4(),
+      title: title.value,
+      author: author.value,
     }
-      
+
     dispatch(addBook(newBook));
+
+    title.value = '';
+    author.value = '';
   }
 
   return (
@@ -19,12 +28,14 @@ const AddBook = () => {
       <div className="add-book-header">ADD NEW BOOK</div>
       <form className="add-book-form">
         <input
+          id="input-title"
           type="text"
           className="add-book-title"
           placeholder="Title"
           name="title"
         />
         <input
+          id="input-author"
           type="text"
           className="add-book-author"
           placeholder="Author"
