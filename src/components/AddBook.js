@@ -5,8 +5,14 @@ const AddBook = () => (
       <input
         type="text"
         className="add-book-title"
-        placeholder="Book Title"
+        placeholder="Title"
         name="title"
+      />
+      <input
+        type="text"
+        className="add-book-author"
+        placeholder="Author"
+        name="author"
       />
       <div className="add-book-wrapper">
         <select name="category" className="add-book-category">

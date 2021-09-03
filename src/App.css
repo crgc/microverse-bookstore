@@ -125,8 +125,9 @@ nav ul li {
   justify-content: space-between;
 }
 
+.add-book-author,
 .add-book-title {
-  width: 60%;
+  width: 30%;
 }
 
 .add-book-btn {
@@ -134,7 +135,7 @@ nav ul li {
   background-color: #0290ff;
   border-radius: 3px;
   padding: 0.6rem 3rem !important;
-  margin-left: 2rem;
+  margin-left: 1rem;
 }
 
 a,
@@ -166,7 +167,6 @@ a:focus,
 /* Bootstrap Button */
 .btn {
   font-size: 14px;
-  padding: 6px 12px;
   margin-bottom: 0;
   display: inline-block;
   text-decoration: none;
