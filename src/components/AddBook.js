@@ -1,27 +1,41 @@
 import { v4 as uuidv4 } from 'uuid';
 import { useDispatch } from 'react-redux';
 import { addBook } from '../redux/books/books';
+import { useRef, useState } from 'react';
 
 const AddBook = () => {
-  const getElementById = (id) => document.getElementById(id);
-
   const dispatch = useDispatch();
 
-  const submitBookToStore = () => {
-    const title = getElementById('input-title');
-    const author = getElementById('input-author');
+  const titleRef = useRef(null);
+  const authorRef = useRef(null);
+
+  const [book, setBook] = useState({
+    title: '',
+    author: '',
+    category: 'Category',
+  })
+
+  const submitBookToStore = (e) => {
+    e.preventDefault();
 
     const newBook = {
       id: uuidv4(),
-      title: title.value,
-      author: author.value,
+      ...book
     };
 
     dispatch(addBook(newBook));
+    setBook({ title: '', author: '' });
 
-    title.value = '';
-    author.value = '';
+    titleRef.current.value = '';
+    authorRef.current.value = '';
   };
+
+  const onChange = (e) => {
+    setBook((prev) => {
+      prev[e.target.name] = e.target.value;
+      return prev;
+    });
+  }
 
   return (
     <div className="add-book-section">
@@ -33,6 +47,8 @@ const AddBook = () => {
           className="add-book-title"
           placeholder="Title"
           name="title"
+          ref={titleRef}
+          onChange={onChange}
         />
         <input
           id="input-author"
@@ -40,6 +56,8 @@ const AddBook = () => {
           className="add-book-author"
           placeholder="Author"
           name="author"
+          ref={authorRef}
+          onChange={onChange}
         />
         <div className="add-book-wrapper">
           <select name="category" className="add-book-category">
