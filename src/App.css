@@ -14,7 +14,7 @@ nav {
   position: relative;
   padding: 1rem 3rem;
   margin-bottom: 3rem;
-  box-shadow: 0 2px 2px -2px rgba(0,0,0,.2);
+  box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.2);
 }
 
 nav ul {
@@ -95,6 +95,7 @@ a:focus,
   color: black;
   background-color: #fafafa;
   font-size: calc(5px + 2vmin);
+
   /* padding: 0 2% 0 2%; */
   min-height: 100vh;
 }
