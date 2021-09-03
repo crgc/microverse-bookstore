@@ -2,10 +2,12 @@ import PropTypes from 'prop-types';
 import RemoveBook from './RemoveBook';
 
 const Book = (props) => {
-  const { id, category, title, author } = props;
+  const {
+    id, category, title, author, /* eslint-disable-line react/prop-types */
+  } = props;
 
   return (
-    <div key={id} className="book">
+    <div className="book">
       <div className="book-info">
         <div className="book-category">{category}</div>
         <div className="book-title">{title}</div>

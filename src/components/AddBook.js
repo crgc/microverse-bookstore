@@ -31,7 +31,9 @@ const AddBook = () => {
 
   const onChange = (e) => {
     setBook((prev) => {
-      prev[e.target.name] = e.target.value;
+      const newState = { ...prev };
+      newState[e.target.name] = e.target.value;
+
       return prev;
     });
   };
