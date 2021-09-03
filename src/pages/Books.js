@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 import AddBook from '../components/AddBook';
-import RemoveBook from '../components/RemoveBook';
+import Book from '../components/Book';
 
 const Books = () => {
   const books = useSelector((state) => state.booksReducer);
@@ -8,14 +8,7 @@ const Books = () => {
   return (
     <div className="book-section">
       {books.map((book) => (
-        <div key={book.id} className="book">
-          <div className="book-info">
-            <div className="book-category">{book.category}</div>
-            <div className="book-title">{book.title}</div>
-            <div className="book-author">{book.author}</div>
-            <RemoveBook id={book.id} />
-          </div>
-        </div>
+        <Book book={book} />
       ))}
       <div className="gray-line" />
       <AddBook />
