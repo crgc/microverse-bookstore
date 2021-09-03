@@ -8,7 +8,7 @@ const Books = () => {
   return (
     <div className="book-section">
       {books.map((book) => (
-        <Book book={book} />
+        <Book id={book.id} title={book.title} author={book.author} />
       ))}
       <div className="gray-line" />
       <AddBook />
