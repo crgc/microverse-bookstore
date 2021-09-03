@@ -64,10 +64,6 @@ npm start
 
 Give a ⭐️ if you like this project!
 
-## Acknowledgments
-
-- Microverse
-
 ## 📝 License
 
 This project is [MIT](https://www.mit.edu/~amini/LICENSE.md) licensed.

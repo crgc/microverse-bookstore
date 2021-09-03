@@ -1,3 +1,23 @@
+select:focus, input:focus{
+  outline: none;
+}
+
+select,
+input {
+  border: none;
+}
+
+select {
+  color: #b4b4b4;
+  height: 2.5rem;
+  padding: 5px 30px;
+}
+
+input[type="text"] {
+  line-height: 2rem;
+  padding: 5px 10px;
+}
+
 nav,
 .book {
   background-color: white;
@@ -5,8 +25,15 @@ nav,
 
 nav,
 .categories-section,
-.book-section {
+.book-section,
+.add-book-section,
+.add-book-form {
   display: flex;
+}
+
+nav,
+.categories-section,
+.book-section {
   align-items: center;
 }
 
@@ -36,16 +63,26 @@ nav ul li {
 }
 
 .categories-section,
-.book-section {
+.book-section,
+.add-book-section {
   flex-direction: column;
+}
+
+.categories-section,
+.book-section {
   justify-content: center;
   margin: 0 auto;
   width: 70%;
 }
 
 .book,
-.gray-line {
+.gray-line,
+.add-book-section {
   width: 100%;
+}
+
+.book,
+.gray-line {
   margin-bottom: 2rem;
 }
 
@@ -58,7 +95,8 @@ nav ul li {
   margin-bottom: 0.5rem;
 }
 
-.book-category {
+.book-category,
+.add-book-header {
   font-weight: bold;
   font-size: medium;
   color: #8e8e8e;
@@ -72,6 +110,30 @@ nav ul li {
 .gray-line {
   height: 2px;
   background-color: #f2f2f2;
+}
+
+.add-book-section {
+  justify-content: flex-start;
+}
+
+.add-book-header {
+  margin-bottom: 1rem;
+}
+
+.add-book-form {
+  justify-content: space-between;
+}
+
+.add-book-title {
+  width: 60%;
+}
+
+.add-book-btn {
+  color: white;
+  background-color: #0290ff;
+  border-radius: 3px;
+  padding: 0.6rem 3rem !important;
+  margin-left: 2rem;
 }
 
 a,
@@ -98,4 +160,46 @@ a:focus,
 
   /* padding: 0 2% 0 2%; */
   min-height: 100vh;
+}
+
+/* Bootstrap Button */
+.btn {
+  font-size: 14px;
+  padding: 6px 12px;
+  margin-bottom: 0;
+
+  display: inline-block;
+  text-decoration: none;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-image: none;
+  border: 1px solid transparent;
+}
+
+.btn:focus,
+.btn:active:focus {
+  outline: thin dotted;
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+
+.btn:hover,
+.btn:focus {
+  color: white;
+  text-decoration: none;
+}
+
+.btn:active {
+  background-image: none;
+  outline: 0;
+  -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125);
+  box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125);
 }

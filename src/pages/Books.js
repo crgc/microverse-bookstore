@@ -1,3 +1,5 @@
+import AddBook from "../components/AddBook";
+
 const Books = () => {
   const books = [
     {
@@ -11,12 +13,6 @@ const Books = () => {
       title: 'Among the Thugs',
       author: 'Bill Buford',
       category: 'Journalism',
-    },
-    {
-      id: 3,
-      title: 'Influence',
-      author: 'Robert Cialdini',
-      category: 'Psychology',
     },
   ];
 
@@ -32,6 +28,7 @@ const Books = () => {
         </div>
       ))}
       <div className="gray-line" />
+      <AddBook />
     </div>
   );
 };
