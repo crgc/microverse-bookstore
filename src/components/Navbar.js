@@ -6,18 +6,18 @@ const Navbar = () => {
     {
       id: 1,
       path: '/',
-      text: 'Books',
+      text: 'BOOKS',
     },
     {
       id: 2,
       path: '/categories',
-      text: 'Categories',
+      text: 'CATEGORIES',
     },
   ];
 
   return (
     <nav>
-      <div>Bookstore MCS</div>
+      <div className="nav-title">Bookstore MCS</div>
       <div>
         <ul>
           {links.map((link) => (
