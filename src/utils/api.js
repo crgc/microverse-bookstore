@@ -34,9 +34,21 @@ const getBooks = () => async (dispatch) => {
   return dispatch({ type: GET_BOOKS_REQUEST_SUCCESS, books });
 };
 
+const createBook = (book) => {
+  fetch(booksBaseURI, {
+    method: 'POST',
+    body: JSON.stringify({
+      item_id: book.id,
+      title: book.title,
+      category: book.category,
+    }),
+    headers: {
+      'Content-type': 'application/json; charset=UTF-8',
+    },
+  });
+};
+
 export {
+  createBook,
   getBooks,
-  GET_BOOKS_REQUEST,
-  GET_BOOKS_REQUEST_SUCCESS,
-  GET_BOOKS_REQUEST_ERROR,
 };

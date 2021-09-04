@@ -1,3 +1,5 @@
+import { createBook } from "../../utils/api";
+
 const ADD_BOOK = 'bookstore/books/ADD';
 const REMOVE_BOOK = 'bookstore/books/REMOVE';
 
@@ -15,10 +17,12 @@ const initialState = [
     category: 'Journalism',
   },
 ];
+
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_BOOK:
-      return [...state, action.payload];
+      createBook(action.payload);
+      return state;
     case REMOVE_BOOK:
       return state.filter((book) => book.id !== action.payload.id);
     default:

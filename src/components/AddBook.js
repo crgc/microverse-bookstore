@@ -1,6 +1,6 @@
 import { v4 as uuidv4 } from 'uuid';
 import { useDispatch } from 'react-redux';
-import { useRef, useState } from 'react';
+import { useState } from 'react';
 import { addBook } from '../redux/books/books';
 
 const AddBook = () => {
@@ -9,19 +9,21 @@ const AddBook = () => {
   const [title, setTitle] = useState('');
   const [category, setCategory] = useState('');
 
-  const submitBookToStore = (e) => {
+  const submitBookToStore = async (e) => {
     e.preventDefault();
 
     const newBook = {
       id: uuidv4(),
       title: title,
-      author: author,
+      category: category,
     };
 
-    dispatch(addBook(newBook));
+    await dispatch(addBook(newBook));
 
     setTitle('');
     setCategory('');
+
+    //await dispatch(getBooks());
   };
 
   const onTitleChange = (e) => {
