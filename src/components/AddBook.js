@@ -25,6 +25,7 @@ const AddBook = () => {
     setCategory('');
 
     await dispatch(getBooks());
+    document.location.reload(true);
   };
 
   const onTitleChange = (e) => {

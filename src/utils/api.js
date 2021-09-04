@@ -29,8 +29,19 @@ const createBook = (book) => {
   });
 };
 
+const deleteBook = (id) => {
+  console.log(`${booksBaseURI}/${id}`);
+  fetch(`${booksBaseURI}/${id}`, {
+    method: 'DELETE',
+    headers: {
+      'Content-type': 'application/json; charset=UTF-8',
+    },
+  });
+}
+
 export {
   createBook,
+  deleteBook,
   getBooks,
   GET_BOOKS,
   GET_BOOKS_SUCCESS,
