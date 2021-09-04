@@ -44,7 +44,7 @@ const AddBook = () => {
           id="input-title"
           type="text"
           className="add-book-title"
-          placeholder="Title"
+          placeholder="Book Title"
           name="title"
           onChange={onTitleChange}
         />
