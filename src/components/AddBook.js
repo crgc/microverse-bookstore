@@ -2,6 +2,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { useDispatch } from 'react-redux';
 import { useState } from 'react';
 import { addBook } from '../redux/books/books';
+import { getBooks } from '../utils/api';
 
 const AddBook = () => {
   const dispatch = useDispatch();
@@ -23,7 +24,7 @@ const AddBook = () => {
     setTitle('');
     setCategory('');
 
-    //await dispatch(getBooks());
+    await dispatch(getBooks());
   };
 
   const onTitleChange = (e) => {
@@ -49,8 +50,8 @@ const AddBook = () => {
         <div className="add-book-wrapper">
           <select id="categories" name="categories" onChange={onCategoryChange} value={category} className="add-book-category">
             <option value="">Category</option>
-            <option value="fantasy">Fantasy</option>
-            <option value="journalism">Journalism</option>
+            <option value="Fantasy">Fantasy</option>
+            <option value="Journalism">Journalism</option>
           </select>
           <button type="button" onClick={submitBookToStore} className="btn add-book-btn">ADD BOOK</button>
         </div>

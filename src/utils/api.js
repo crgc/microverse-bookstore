@@ -1,26 +1,5 @@
-// POST
-// {
-//   "item_id": "item1",
-//   "title": "The Great Gatsby",
-//   "category": "Fiction"
-// }
-
-// 200 Created
-
-// {
-//     "item1": [
-//         {
-//             "title": "The Great Gatsby",
-//             "category": "Fiction"
-//         }
-//     ]
-// }
-
-// DETELE
-// 201 The book was deleted successfully!
-const GET_BOOKS_REQUEST = 'bookstore/books/GET_BOOKS_REQUEST';
-const GET_BOOKS_REQUEST_SUCCESS = 'bookstore/books/GET_BOOKS_REQUEST_SUCCESS';
-const GET_BOOKS_REQUEST_ERROR = 'bookstore/books/GET_BOOKS_REQUEST_ERROR';
+const GET_BOOKS = 'bookstore/books/GET_BOOKS';
+const GET_BOOKS_SUCCESS = 'bookstore/books/GET_BOOKS_SUCCESS';
 
 const bookstoreAPIBaseURI = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/Rt4xfKXqnprbF0Parz4X';
 const booksBaseURI = `${bookstoreAPIBaseURI}/books`;
@@ -31,7 +10,9 @@ const getBooks = () => async (dispatch) => {
   const response = await fetch(booksBaseURI);
   const books = await response.json();
 
-  return dispatch({ type: GET_BOOKS_REQUEST_SUCCESS, books });
+  console.log(books);
+
+  return dispatch({ type: GET_BOOKS_SUCCESS, books });
 };
 
 const createBook = (book) => {
@@ -51,4 +32,6 @@ const createBook = (book) => {
 export {
   createBook,
   getBooks,
+  GET_BOOKS,
+  GET_BOOKS_SUCCESS,
 };

@@ -1,9 +1,9 @@
-import { createBook } from "../../utils/api";
+import { createBook, GET_BOOKS, GET_BOOKS_SUCCESS } from "../../utils/api";
 
 const ADD_BOOK = 'bookstore/books/ADD';
 const REMOVE_BOOK = 'bookstore/books/REMOVE';
 
-const initialState = [
+/* const initialState = [
   {
     id: 1,
     title: 'The Lord of the Rings',
@@ -16,7 +16,9 @@ const initialState = [
     author: 'Bill Buford',
     category: 'Journalism',
   },
-];
+]; */
+
+const initialState = [];
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
@@ -25,6 +27,14 @@ const reducer = (state = initialState, action) => {
       return state;
     case REMOVE_BOOK:
       return state.filter((book) => book.id !== action.payload.id);
+    case GET_BOOKS:
+      return state;
+    case GET_BOOKS_SUCCESS:
+      const { books } = action;
+      const newState = Object.keys(books).map((key) => {
+        return { item_id: key, ...books[key][0] }
+      })
+      return newState;
     default:
       return state;
   }
