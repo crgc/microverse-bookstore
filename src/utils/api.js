@@ -10,8 +10,6 @@ const getBooks = () => async (dispatch) => {
   const response = await fetch(booksBaseURI);
   const books = await response.json();
 
-  console.log(books);
-
   return dispatch({ type: GET_BOOKS_SUCCESS, books });
 };
 
@@ -30,14 +28,13 @@ const createBook = (book) => {
 };
 
 const deleteBook = (id) => {
-  console.log(`${booksBaseURI}/${id}`);
   fetch(`${booksBaseURI}/${id}`, {
     method: 'DELETE',
     headers: {
       'Content-type': 'application/json; charset=UTF-8',
     },
   });
-}
+};
 
 export {
   createBook,

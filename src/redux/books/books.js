@@ -1,4 +1,6 @@
-import { createBook, deleteBook, GET_BOOKS, GET_BOOKS_SUCCESS } from "../../utils/api";
+import {
+  createBook, deleteBook, GET_BOOKS, GET_BOOKS_SUCCESS,
+} from '../../utils/api';
 
 const ADD_BOOK = 'bookstore/books/ADD';
 const REMOVE_BOOK = 'bookstore/books/REMOVE';
@@ -14,16 +16,12 @@ const reducer = (state = initialState, action) => {
       const { payload } = action;
       deleteBook(payload);
 
-      return state.filter(book => book.item_id !== payload);
+      return state.filter((book) => book.item_id !== payload);
     }
     case GET_BOOKS:
       return state;
     case GET_BOOKS_SUCCESS:
-      const { books } = action;
-      const newState = Object.keys(books).map((key) => {
-        return { item_id: key, ...books[key][0] }
-      })
-      return newState;
+      return Object.keys(action.books).map((key) => ({ item_id: key, ...action.books[key][0] }));
     default:
       return state;
   }

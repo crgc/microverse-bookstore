@@ -15,8 +15,8 @@ const AddBook = () => {
 
     const newBook = {
       id: uuidv4(),
-      title: title,
-      category: category,
+      title,
+      category,
     };
 
     await dispatch(addBook(newBook));

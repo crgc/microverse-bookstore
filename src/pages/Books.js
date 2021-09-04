@@ -1,9 +1,7 @@
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { useEffect } from 'react';
 import AddBook from '../components/AddBook';
 import Book from '../components/Book';
-import { useDispatch } from 'react-redux';
-import { useEffect } from 'react';
-import _ from 'lodash';
 import { getBooks } from '../utils/api';
 
 const Books = () => {
@@ -13,7 +11,7 @@ const Books = () => {
     dispatch(getBooks());
   }, []);
 
-  const books = useSelector((state) => state.booksReducer );
+  const books = useSelector((state) => state.booksReducer);
 
   return (
     <div className="book-section">
@@ -23,7 +21,8 @@ const Books = () => {
             key={book.item_id}
             id={book.item_id}
             title={book.title}
-            category={book.category} />
+            category={book.category}
+          />
         ))
       }
       <div className="gray-line" />
