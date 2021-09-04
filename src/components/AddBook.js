@@ -1,41 +1,39 @@
 import { v4 as uuidv4 } from 'uuid';
 import { useDispatch } from 'react-redux';
-import { useRef, useState } from 'react';
+import { useState } from 'react';
 import { addBook } from '../redux/books/books';
+import { getBooks } from '../utils/api';
 
 const AddBook = () => {
   const dispatch = useDispatch();
 
-  const titleRef = useRef(null);
-  const authorRef = useRef(null);
+  const [title, setTitle] = useState('');
+  const [category, setCategory] = useState('');
 
-  const [book, setBook] = useState({
-    title: '',
-    author: '',
-  });
-
-  const submitBookToStore = (e) => {
+  const submitBookToStore = async (e) => {
     e.preventDefault();
 
     const newBook = {
       id: uuidv4(),
-      ...book,
+      title,
+      category,
     };
 
-    dispatch(addBook(newBook));
-    setBook({ title: '', author: '' });
+    await dispatch(addBook(newBook));
 
-    titleRef.current.value = '';
-    authorRef.current.value = '';
+    setTitle('');
+    setCategory('');
+
+    await dispatch(getBooks());
+    document.location.reload(true);
   };
 
-  const onChange = (e) => {
-    setBook((prev) => {
-      const newState = { ...prev };
-      newState[e.target.name] = e.target.value;
+  const onTitleChange = (e) => {
+    setTitle(e.target.value);
+  };
 
-      return newState;
-    });
+  const onCategoryChange = (e) => {
+    setCategory(e.target.value);
   };
 
   return (
@@ -48,23 +46,13 @@ const AddBook = () => {
           className="add-book-title"
           placeholder="Title"
           name="title"
-          ref={titleRef}
-          onChange={onChange}
-        />
-        <input
-          id="input-author"
-          type="text"
-          className="add-book-author"
-          placeholder="Author"
-          name="author"
-          ref={authorRef}
-          onChange={onChange}
+          onChange={onTitleChange}
         />
         <div className="add-book-wrapper">
-          <select name="category" className="add-book-category">
-            <option value="category">Category</option>
-            <option value="fantasy">Fantasy</option>
-            <option value="fantasy">Journalism</option>
+          <select id="categories" name="categories" onChange={onCategoryChange} value={category} className="add-book-category">
+            <option value="">Category</option>
+            <option value="Fantasy">Fantasy</option>
+            <option value="Journalism">Journalism</option>
           </select>
           <button type="button" onClick={submitBookToStore} className="btn add-book-btn">ADD BOOK</button>
         </div>

@@ -1,18 +1,30 @@
 import PropTypes from 'prop-types';
-import RemoveBook from './RemoveBook';
+import { useDispatch } from 'react-redux';
+import { removeBook } from '../redux/books/books';
 
 const Book = (props) => {
   const {
-    id, category, title, author, /* eslint-disable-line react/prop-types */
+    id, category, title, /* eslint-disable-line react/prop-types */
   } = props;
+
+  const dispatch = useDispatch();
+
+  const handleRemove = () => {
+    dispatch(removeBook(id));
+  };
 
   return (
     <div className="book">
       <div className="book-info">
         <div className="book-category">{category}</div>
         <div className="book-title">{title}</div>
-        <div className="book-author">{author}</div>
-        <RemoveBook id={id} />
+        <button
+          type="button"
+          onClick={handleRemove}
+          className="btn remove-book-btn"
+        >
+          Remove
+        </button>
       </div>
     </div>
   );
@@ -21,7 +33,6 @@ const Book = (props) => {
 Book.propsType = {
   id: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
-  author: PropTypes.string.isRequired,
   category: PropTypes.string.isRequired,
 };
 
