@@ -11,7 +11,6 @@ const Book = (props) => {
       <div className="book-info">
         <div className="book-category">{category}</div>
         <div className="book-title">{title}</div>
-        <div className="book-author">{author}</div>
         <RemoveBook id={id} />
       </div>
     </div>
@@ -21,7 +20,6 @@ const Book = (props) => {
 Book.propsType = {
   id: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
-  author: PropTypes.string.isRequired,
   category: PropTypes.string.isRequired,
 };
 

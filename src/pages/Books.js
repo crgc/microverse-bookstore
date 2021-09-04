@@ -1,6 +1,7 @@
 import { useSelector } from 'react-redux';
 import AddBook from '../components/AddBook';
 import Book from '../components/Book';
+import { useDispatch } from 'react-redux';
 
 const Books = () => {
   const books = useSelector((state) => state.booksReducer);
@@ -12,7 +13,6 @@ const Books = () => {
           key={book.id}
           id={book.id}
           title={book.title}
-          author={book.author}
           category={book.category}
         />
       ))}
