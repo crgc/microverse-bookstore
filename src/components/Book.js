@@ -1,6 +1,8 @@
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { removeBook } from '../redux/books/books';
+import BookCompleted from './BookCompleted';
+import BookChapter from './BookChapter';
 
 const Book = (props) => {
   const {
@@ -18,13 +20,18 @@ const Book = (props) => {
       <div className="book-info">
         <div className="book-category">{category}</div>
         <div className="book-title">{title}</div>
-        <button
-          type="button"
-          onClick={handleRemove}
-          className="btn remove-book-btn"
-        >
-          Remove
-        </button>
+        <div className="book-author">Unknown</div>
+        <div className="book-actions">
+          <a href="/#">Comments</a>
+          {' | '}
+          <a href="/#" onClick={handleRemove}>Remove</a>
+          {' | '}
+          <a href="/#">Edit</a>
+        </div>
+      </div>
+      <div className="book-status">
+        <BookCompleted />
+        <BookChapter />
       </div>
     </div>
   );
